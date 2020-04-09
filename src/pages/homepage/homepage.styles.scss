@@ -5,6 +5,13 @@
   padding: 20px 80px;
 }
 
+
+@media screen and (max-width: 992px) {
+  .homepage {
+    padding: 20px 20px;
+  }
+}
+
 // .homepage{
 //   display: flex;
 //   flex-flow: row wrap;
