@@ -12,6 +12,7 @@
     &.large {
       height: 380px
     }
+
   
     &:first-child {
       margin-right: 7.5px;
@@ -63,6 +64,14 @@
       .subtitle {
         font-weight: lighter;
         font-size: 16px;
+      }
+    }
+  }
+
+  @media screen and (max-width: 992px) {
+    .menu-item {
+      &.large {
+        height: 240px
       }
     }
   }
