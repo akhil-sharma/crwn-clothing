@@ -48,8 +48,8 @@ class Directory extends React.Component{
     render() {
         return (
             <div className='directory-menu'>
-                {this.state.section.map((menu) => (
-                    <MenuItem key={menu.id} title={menu.title} imageUrl={menu.imageUrl} size={menu.size}/>
+                {this.state.section.map(({key, ...otherSectionProps}) => (
+                    <MenuItem key={key} {...otherSectionProps}/>
                 ))}
             </div>
         );
