@@ -10,7 +10,8 @@ class SignIn extends React.Component{
         super();
         this.state = {
             email : "",
-            password : ""
+            password : "",
+            error: null
         }
     }
 
@@ -27,6 +28,7 @@ class SignIn extends React.Component{
             })
         }catch(error){
             console.error(error);
+            this.setState({error: "Invalid username or password."})
         }
     }
 
@@ -41,6 +43,12 @@ class SignIn extends React.Component{
             <div className='sign-in'>
                 <h2>I already have an account.</h2>
                 <span>SignIn with your email and password.</span>
+                {
+                    this.state.error ? 
+                    <span className="error-message">{ this.state.error }</span> :
+                    null
+                }
+                
                 <form onSubmit={this.handleSubmit}>
                     <FormInput 
                         label="Email"
