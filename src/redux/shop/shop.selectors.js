@@ -4,19 +4,19 @@ const selectShop = state => state.shop
 
 export const selectShopData = createSelector(
     [selectShop],
-    shop => shop.shopData
+    shop => shop.collections
 );
 
 export const selectShopDataSpecific = (shopDataUrlParams) => (
     createSelector(
         [selectShopData],
-        shopData => shopData[shopDataUrlParams]
+        collections => collections ? collections[shopDataUrlParams] : []
     )
 );
 
 export const selectShopDataForPreview = createSelector(
     [selectShopData],
-    shopData => Object.values(shopData)
+    collections => collections ? Object.values(collections) : null
 );
 
 
