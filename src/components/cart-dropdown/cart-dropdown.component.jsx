@@ -8,25 +8,29 @@ import CartItem from '../cart-item/cart-item.component';
 import { selectCartItems } from '../../redux/cart/cart.selectors';
 import { toggleCartHidden } from '../../redux/cart/cart.actions';
 
-import './cart-dropdown.styles.scss';
+import {
+    CartDropdownContainer,
+    CartItemsContainer,
+    EmptyCartMessage
+} from './cart-dropdown.styles';
 
 const CartDropdown = ({cartItems, match, history, dispatch}) => (
-    <div className='cart-dropdown'>
-        <div className='cart-items'>
+    <CartDropdownContainer>
+        <CartItemsContainer>
             {
                 cartItems.length ? 
                 cartItems.map((item) => (
                     <CartItem key={ item.id } item={item}/>
                 ))
                 :
-                <span className='empty-message'>Your cart is empty!</span>
+                <EmptyCartMessage>Your cart is empty!</EmptyCartMessage>
             }
-        </div>
+        </CartItemsContainer>
         <CustomButton onClick={()=> {
             history.push(`${match.url}checkout`);
             dispatch(toggleCartHidden())
             }}> GO TO CHECKOUT </CustomButton>
-    </div>
+    </CartDropdownContainer>
 );
 
 const matchStateToProps = (state) => ({
