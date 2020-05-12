@@ -12,7 +12,8 @@ import {
 
 const CollectionPage = ({collection }) => {
     const {title, items} = collection;
-
+    console.log(collection);
+    
     return (
     <CollectionPageContainer>
         <CollectionTitle>{title}</CollectionTitle>
